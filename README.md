@@ -6,7 +6,7 @@
 
 Đọc tin tuyển dụng thô → trích xuất kỹ năng và lương có bằng chứng → đo xu hướng theo thời gian bằng thống kê chặt chẽ.
 
-[![CI](https://github.com/AIVIETNAM-AIO-luciusHo/skill-radar-AI-/actions/workflows/ci.yml/badge.svg)](https://github.com/AIVIETNAM-AIO-luciusHo/skill-radar-AI-/actions/workflows/ci.yml)
+[![CI](https://github.com/AIVIETNAM-AIO-luciusHo/skill-radar-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/AIVIETNAM-AIO-luciusHo/skill-radar-AI/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![Status](https://img.shields.io/badge/status-design%20%E2%86%92%20MVP-orange)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -61,8 +61,8 @@ Có 5 cổng quyết định (G0–G4) và thứ tự cắt giảm khi trễ ti�
 Yêu cầu: Linux/WSL2, [`uv`](https://docs.astral.sh/uv/), Python ≥ 3.11.
 
 ```bash
-git clone https://github.com/AIVIETNAM-AIO-luciusHo/skill-radar-AI-.git
-cd skill-radar-AI-
+git clone https://github.com/AIVIETNAM-AIO-luciusHo/skill-radar-AI.git
+cd skill-radar-AI
 make install     # uv sync --locked
 make ci          # ruff + pytest, đúng những gì CI chạy
 ```
@@ -92,7 +92,7 @@ Các lệnh `make all` (bronze → gold) và `make app` (dashboard) sẽ có khi
 3. `main` được bảo vệ: chỉ merge qua PR, cần check **`ci-ok`** (`ruff check`, `ruff format --check`, `pytest`). Cấu hình Ruleset ở [`.github/rulesets/main.json`](.github/rulesets/main.json):
 
    ```bash
-   gh api repos/AIVIETNAM-AIO-luciusHo/skill-radar-AI-/rulesets --method POST --input .github/rulesets/main.json
+   gh api repos/AIVIETNAM-AIO-luciusHo/skill-radar-AI/rulesets --method POST --input .github/rulesets/main.json
    ```
 
 4. Nguyên tắc bất biến của dự án: [`.specify/memory/constitution.md`](.specify/memory/constitution.md).

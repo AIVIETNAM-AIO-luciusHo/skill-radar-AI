@@ -1,0 +1,20 @@
+name: Spike
+description: Khảo sát có giới hạn thời gian để trả lời một câu hỏi (ví dụ kiểm kê dữ liệu G0)
+title: "[SPIKE] "
+labels: [spike]
+body:
+  - type: textarea
+    id: question
+    attributes: { label: Câu hỏi cần trả lời }
+    validations: { required: true }
+  - type: input
+    id: timebox
+    attributes:
+      label: Giới hạn thời gian
+      placeholder: "0.5 ngày"
+    validations: { required: true }
+  - type: textarea
+    id: output
+    attributes:
+      label: Sản phẩm đầu ra
+      description: Quyết định ghi vào docs/decisions.md hoặc báo cáo docs/*.md.

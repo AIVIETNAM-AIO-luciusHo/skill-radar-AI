@@ -1,0 +1,26 @@
+name: Task
+description: Một đơn vị công việc có tiêu chí hoàn thành kiểm chứng được
+title: "[W?] "
+labels: [task]
+body:
+  - type: input
+    id: spec
+    attributes:
+      label: Task trong spec
+      description: Mã task trong specs/<feature>/tasks.md (ví dụ T012)
+  - type: textarea
+    id: goal
+    attributes:
+      label: Mục tiêu
+    validations: { required: true }
+  - type: textarea
+    id: done
+    attributes:
+      label: Tiêu chí hoàn thành
+      description: Lệnh + kết quả mong đợi, ví dụ "pytest tests/test_salary.py xanh, 10 ca QA-SAL".
+    validations: { required: true }
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options: ["S (≤ 0.5 ngày)", "M (≤ 2 ngày)", "L (≤ 4 ngày; lớn hơn thì tách)"]

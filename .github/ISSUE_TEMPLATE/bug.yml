@@ -1,0 +1,19 @@
+name: Bug
+description: Kết quả sai hoặc pipeline hỏng
+title: "[BUG] "
+labels: [bug]
+body:
+  - type: textarea
+    id: actual
+    attributes: { label: Hiện tượng thực tế }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: Kỳ vọng }
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Cách tái hiện
+      description: Lệnh, `job_id` hoặc đoạn JD tối thiểu gây lỗi.
+    validations: { required: true }

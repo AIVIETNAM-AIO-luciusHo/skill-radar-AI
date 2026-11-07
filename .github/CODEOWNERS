@@ -1,0 +1,3 @@
+# Dự án một người: mọi đường dẫn thuộc chủ repo.
+# Khi có thêm người, tách theo mô-đun (DA: ingestion/hygiene/analytics/app; ML+QA: nlp/clustering/api/tests).
+* @AIVIETNAM-AIO-luciusHo

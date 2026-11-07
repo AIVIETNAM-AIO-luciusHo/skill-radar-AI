@@ -1,0 +1,49 @@
+[project]
+name = "skillradar"
+version = "0.0.0"
+description = "Phân tích dịch chuyển kỹ năng, phân cụm mảng chuyên môn và mức lương từ tin tuyển dụng."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+# Chỉ gồm thư viện lõi của Giai đoạn 1 (MVP). Phần nặng nằm ở extras để CI luôn nhanh.
+dependencies = [
+    "pydantic>=2.7",
+    "pyyaml>=6",
+    "httpx>=0.27",
+    "duckdb>=1.0",
+    "polars>=1.0",
+    "pandera[polars]>=0.20",
+    "datasketch>=1.6",
+    "rapidfuzz>=3.9",
+    "scipy>=1.13",
+]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.36", "plotly>=5.22"]  # Tab 1-3 (GĐ1)
+nlp = ["spacy>=3.7"]                        # Dictionary baseline (GĐ1)
+ml = [                                      # NER, linking, clustering (GĐ2)
+    "torch", "transformers", "seqeval", "onnxruntime", "faiss-cpu",
+    "umap-learn", "hdbscan", "igraph", "leidenalg", "pymannkendall", "statsmodels",
+]
+api = ["fastapi", "uvicorn"]                # Live JD Analyzer (GĐ3)
+
+[dependency-groups]
+dev = ["ruff>=0.6", "pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skillradar"]
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

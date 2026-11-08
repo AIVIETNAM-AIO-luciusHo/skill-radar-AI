@@ -87,14 +87,11 @@ Các lệnh `make all` (bronze → gold) và `make app` (dashboard) sẽ có khi
 
 ## Quy trình phát triển
 
+Quy trình chuẩn, không ngoại lệ: **Issue → nhánh + code → PR → `ci-ok` xanh → review & approve → merge**. Chi tiết, Definition of Done và quy định review: [`CONTRIBUTING.md`](CONTRIBUTING.md).
+
 1. Việc lớn đi qua Spec Kit: `/speckit-specify` → `/speckit-plan` → `/speckit-tasks` → `/speckit-implement`. Đặc tả MVP nằm ở [`specs/001-mvp-data-pipeline/`](specs/001-mvp-data-pipeline/).
-2. Mỗi task là một GitHub Issue; nhánh `feat/<issue#>-<slug>`; PR ghi `Closes #n`, lệnh kiểm chứng và số liệu thật.
-3. `main` được bảo vệ: chỉ merge qua PR, cần check **`ci-ok`** (`ruff check`, `ruff format --check`, `pytest`). Cấu hình Ruleset ở [`.github/rulesets/main.json`](.github/rulesets/main.json):
-
-   ```bash
-   gh api repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets --method POST --input .github/rulesets/main.json
-   ```
-
+2. Mỗi task là một GitHub Issue (mẫu có Acceptance Criteria và Definition of Done); nhánh `feat/<issue#>-<slug>`; PR dùng [mẫu PR](.github/pull_request_template.md), ghi `Closes #n`, lệnh kiểm chứng và số liệu thật.
+3. `main` được bảo vệ bằng Ruleset ([`.github/rulesets/main.json`](.github/rulesets/main.json)): chỉ merge qua PR, cần check **`ci-ok`** (`ruff check`, `ruff format --check`, `pytest`).
 4. Nguyên tắc bất biến của dự án: [`.specify/memory/constitution.md`](.specify/memory/constitution.md).
 
 ## Tài liệu

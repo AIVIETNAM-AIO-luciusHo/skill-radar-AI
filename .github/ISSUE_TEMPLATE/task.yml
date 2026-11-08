@@ -16,11 +16,25 @@ body:
   - type: textarea
     id: done
     attributes:
-      label: Tiêu chí hoàn thành
-      description: Lệnh + kết quả mong đợi, ví dụ "pytest tests/test_salary.py xanh, 10 ca QA-SAL".
+      label: Acceptance Criteria
+      description: Kiểm chứng được bằng lệnh + kết quả mong đợi, ví dụ "pytest tests/test_salary.py xanh, 10 ca QA-SAL".
     validations: { required: true }
   - type: dropdown
     id: size
     attributes:
       label: Size
       options: ["S (≤ 0.5 ngày)", "M (≤ 2 ngày)", "L (≤ 4 ngày; lớn hơn thì tách)"]
+  - type: checkboxes
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      description: Điều kiện phải đạt trước khi đóng Issue. Không cần tích khi vừa tạo.
+      options:
+        - label: Hoàn thành toàn bộ Acceptance Criteria.
+        - label: Code đáp ứng đặc tả và data contract.
+        - label: Có kiểm thử phù hợp với thay đổi.
+        - label: CI trên PR liên quan đã xanh (`ci-ok`).
+        - label: Đã tự review và xử lý phản hồi (có approve nếu quy định yêu cầu).
+        - label: Tài liệu đã cập nhật nếu cần (README, docs, tasks.md, decisions.md).
+        - label: PR đã merge vào `main`.
+        - label: Không còn lỗi chặn hoặc việc tồn đọng chưa được ghi nhận.

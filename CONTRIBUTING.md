@@ -24,11 +24,10 @@ Không push thẳng lên `main`. Không dùng quyền bypass của chủ repo đ
 
 ## Quy định review
 
-- **Hiện tại (một người có quyền ghi):** Ruleset đặt `required_approving_review_count = 0` vì GitHub không cho tác giả tự approve PR của mình. Bước 5 là **tự review kỹ** ở tab *Files changed* và điền mục 4–5 của mẫu PR. `CODEOWNERS` chỉ có chủ repo.
-- **Từ khi người thứ hai (Hogiaan) chấp nhận lời mời và có quyền Write:** **bắt buộc 1 approval** từ người kia. Khi đó làm hai việc, cùng một PR:
-  1. Trong `.github/rulesets/main.json` đổi `required_approving_review_count` thành `1`.
-  2. Cập nhật Ruleset đang chạy: `gh api -X PUT repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets/<ID> --input .github/rulesets/main.json` (lấy `<ID>` bằng `gh api repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets --jq '.[].id'`).
-  3. Ghi quyết định vào `docs/decisions.md`.
+- **Bắt buộc 1 approval** từ người khác (Ruleset `required_approving_review_count = 1`, từ 2026-11-08, khi Hogiaan có quyền Write). Tác giả không tự approve được PR của mình; PR của bạn do Hogiaan duyệt và ngược lại.
+- Tác giả vẫn phải tự review kỹ ở tab *Files changed* và điền mục 4–5 của mẫu PR **trước** khi nhờ người kia review.
+- Ruleset không đòi review của Code Owner (`require_code_owner_review = false`); `CODEOWNERS` hiện chỉ có chủ repo. Muốn ép review theo module thì thêm owner vào `CODEOWNERS` rồi bật tham số này.
+- Đổi cấu hình Ruleset: sửa `.github/rulesets/main.json` trong một PR, rồi áp bằng `gh api -X PUT repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets/<ID> --input .github/rulesets/main.json` (lấy `<ID>` bằng `gh api repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets --jq '.[].id'`) và ghi quyết định vào `docs/decisions.md`.
 - Review nhắm vào: đáp ứng Acceptance Criteria, đúng data contract, test có ý nghĩa (không chỉ phủ dòng), dữ liệu biên, và các nguyên tắc trong `.specify/memory/constitution.md`.
 
 ## Quy ước commit

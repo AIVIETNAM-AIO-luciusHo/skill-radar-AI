@@ -17,3 +17,17 @@ body:
       label: Cách tái hiện
       description: Lệnh, `job_id` hoặc đoạn JD tối thiểu gây lỗi.
     validations: { required: true }
+  - type: checkboxes
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      description: Điều kiện phải đạt trước khi đóng Issue. Không cần tích khi vừa tạo.
+      options:
+        - label: Kết quả khớp kỳ vọng ghi trong Issue.
+        - label: Code đáp ứng đặc tả và data contract.
+        - label: Có test tái hiện lỗi (đỏ trước khi sửa, xanh sau khi sửa).
+        - label: CI trên PR liên quan đã xanh (`ci-ok`).
+        - label: Đã tự review và xử lý phản hồi (có approve nếu quy định yêu cầu).
+        - label: Tài liệu đã cập nhật nếu cần (README, docs, tasks.md, decisions.md).
+        - label: PR đã merge vào `main`.
+        - label: Không còn lỗi chặn hoặc việc tồn đọng chưa được ghi nhận.

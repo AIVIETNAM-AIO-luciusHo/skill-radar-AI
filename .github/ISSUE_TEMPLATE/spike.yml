@@ -18,3 +18,16 @@ body:
     attributes:
       label: Sản phẩm đầu ra
       description: Quyết định ghi vào docs/decisions.md hoặc báo cáo docs/*.md.
+  - type: checkboxes
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      description: Điều kiện phải đạt trước khi đóng Issue. Không cần tích khi vừa tạo.
+      options:
+        - label: Câu hỏi đã được trả lời bằng thực nghiệm hoặc tài liệu chính thức, có dẫn nguồn.
+        - label: Kết luận nằm trong `docs/` hoặc `docs/decisions.md` (kể cả khi kết luận là "không dùng").
+        - label: Làm trong giới hạn thời gian; nếu vượt thì ghi lý do.
+        - label: CI trên PR liên quan đã xanh (`ci-ok`).
+        - label: Đã tự review và xử lý phản hồi (có approve nếu quy định yêu cầu).
+        - label: PR đã merge vào `main`.
+        - label: Không còn việc tồn đọng chưa được ghi nhận (tạo Issue mới nếu có).

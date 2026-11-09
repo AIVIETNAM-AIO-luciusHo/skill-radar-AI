@@ -46,7 +46,7 @@ mẫu số chuẩn hóa + Wilson, quy tắc lương, offset/bằng chứng, gold
 ## Quy trình phát triển
 
 - Quy trình chuẩn, không ngoại lệ: **Issue → nhánh + code → PR → `ci-ok` xanh → review & approve → merge** (chi tiết và Definition of Done ở `CONTRIBUTING.md`). `main` được bảo vệ bằng Ruleset: chỉ merge qua PR, cần check `ci-ok` (`ruff check`, `ruff format --check`, `pytest`), phải giải quyết hết hội thoại.
-- Approval: bắt buộc 1 approval từ người thứ hai ngay khi người đó có quyền Write; trước đó (một người có quyền ghi) bước review là tự review kỹ vì GitHub không cho tự approve, và cổng cứng duy nhất là `ci-ok`.
+- Approval: bắt buộc 1 approval từ người khác (tác giả không tự approve PR của mình); tác giả vẫn tự review kỹ trước khi nhờ review.
 - Quy trình mỗi tính năng lớn: `speckit-specify → plan → tasks → implement`, mỗi task thành một GitHub Issue, nhánh `feat/<issue#>-<slug>`, PR ghi `Closes #n`, lệnh kiểm chứng và số liệu thật.
 - Tiến độ nằm ở GitHub Projects (trường Status/Phase/Week/Size/Priority); không ghi trạng thái ở hai nơi. Ô tick trong `tasks.md` được tick trong chính PR đóng task.
 - Quyết định kiến trúc ghi vào `docs/decisions.md` (D-xx, trạng thái proposed/approved).
@@ -59,4 +59,4 @@ Constitution này ưu tiên hơn mọi thói quen làm việc khác; mâu thuẫ
 `.github/pull_request_template.md`. Sửa đổi nguyên tắc cần ghi lý do vào `docs/decisions.md` và tăng phiên bản:
 MAJOR khi bỏ/đổi nghĩa nguyên tắc, MINOR khi thêm nguyên tắc hoặc mục, PATCH khi sửa câu chữ.
 
-**Version**: 1.1.0 | **Ratified**: 2026-11-07 | **Last Amended**: 2026-11-08
+**Version**: 1.1.1 | **Ratified**: 2026-11-07 | **Last Amended**: 2026-11-08

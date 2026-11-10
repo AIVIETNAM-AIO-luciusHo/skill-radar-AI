@@ -1,3 +1,30 @@
-# Dự án một người: mọi đường dẫn thuộc chủ repo.
-# Khi có thêm người, tách theo mô-đun (DA: ingestion/hygiene/analytics/app; ML+QA: nlp/clustering/api/tests).
-* @AIVIETNAM-AIO-luciusHo
+# Review chéo giữa hai thành viên.
+# Quy ước: owner của một đường dẫn là NGƯỜI REVIEW, không phải tác giả của phần đó.
+#   DA    = @ThSonDev               (Phạm Nguyễn Thanh Sơn, Data Engineer, nhãn vai trò DA)
+#   ML+QA = @AIVIETNAM-AIO-luciusHo (chủ repo)
+# Dòng khớp SAU CÙNG thắng, nên catch-all đặt đầu tiên.
+# Owner phải có quyền Write trở lên: @ThSonDev chỉ có hiệu lực sau khi chấp nhận lời mời vào repo.
+# Ruleset không bật require_code_owner_review: CODEOWNERS chỉ tự động yêu cầu đúng người review;
+# điều kiện merge vẫn là 1 approval từ người khác + ci-ok.
+# Nếu owner chính là tác giả PR thì GitHub không tự gọi ai: tác giả nhờ người kia review thủ công.
+
+# Chung (hạ tầng, hợp đồng, kiểm thử, tài liệu, đặc tả): cả hai cùng review
+* @AIVIETNAM-AIO-luciusHo @ThSonDev
+
+# Phần DA (dữ liệu, ingestion, thống kê, dashboard) -> ML+QA review
+/src/skillradar/ingestion/ @AIVIETNAM-AIO-luciusHo
+/src/skillradar/hygiene/ @AIVIETNAM-AIO-luciusHo
+/src/skillradar/analytics/ @AIVIETNAM-AIO-luciusHo
+/app/ @AIVIETNAM-AIO-luciusHo
+/notebooks/ @AIVIETNAM-AIO-luciusHo
+/configs/sources.yaml @AIVIETNAM-AIO-luciusHo
+/configs/scraping_rate_limits.yaml @AIVIETNAM-AIO-luciusHo
+/configs/taxonomy.yaml @AIVIETNAM-AIO-luciusHo
+/docs/data_inventory.md @AIVIETNAM-AIO-luciusHo
+
+# Phần ML+QA (NLP, phân cụm, API) -> DA review
+/src/skillradar/nlp/ @ThSonDev
+/src/skillradar/clustering/ @ThSonDev
+/src/skillradar/api/ @ThSonDev
+/configs/train_ner.yaml @ThSonDev
+/configs/clustering.yaml @ThSonDev

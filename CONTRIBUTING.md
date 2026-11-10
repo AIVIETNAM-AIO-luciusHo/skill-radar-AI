@@ -24,7 +24,7 @@ Không push thẳng lên `main`. Không dùng quyền bypass của chủ repo đ
 
 ## Quy định review
 
-- **Bắt buộc 1 approval** từ người khác (Ruleset `required_approving_review_count = 1`, từ 2026-11-08, khi Hogiaan có quyền Write). Tác giả không tự approve được PR của mình; PR của bạn do Hogiaan duyệt và ngược lại.
+- **Bắt buộc 1 approval** từ người khác (Ruleset `required_approving_review_count = 1`, từ 2026-11-08). Tác giả không tự approve được PR của mình; PR của chủ repo (ML+QA) do Phạm Nguyễn Thanh Sơn (`ThSonDev`, DA) duyệt và ngược lại.
 - Tác giả vẫn phải tự review kỹ ở tab *Files changed* và điền mục 4–5 của mẫu PR **trước** khi nhờ người kia review.
 - Ruleset không đòi review của Code Owner (`require_code_owner_review = false`); `CODEOWNERS` hiện chỉ có chủ repo. Muốn ép review theo module thì thêm owner vào `CODEOWNERS` rồi bật tham số này.
 - Đổi cấu hình Ruleset: sửa `.github/rulesets/main.json` trong một PR, rồi áp bằng `gh api -X PUT repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets/<ID> --input .github/rulesets/main.json` (lấy `<ID>` bằng `gh api repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets --jq '.[].id'`) và ghi quyết định vào `docs/decisions.md`.

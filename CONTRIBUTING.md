@@ -26,7 +26,8 @@ Không push thẳng lên `main`. Không dùng quyền bypass của chủ repo đ
 
 - **Bắt buộc 1 approval** từ người khác (Ruleset `required_approving_review_count = 1`, từ 2026-11-08). Tác giả không tự approve được PR của mình; PR của chủ repo (ML+QA) do Phạm Nguyễn Thanh Sơn (`ThSonDev`, DA) duyệt và ngược lại.
 - Tác giả vẫn phải tự review kỹ ở tab *Files changed* và điền mục 4–5 của mẫu PR **trước** khi nhờ người kia review.
-- Ruleset không đòi review của Code Owner (`require_code_owner_review = false`); `CODEOWNERS` hiện chỉ có chủ repo. Muốn ép review theo module thì thêm owner vào `CODEOWNERS` rồi bật tham số này.
+- **Review chéo theo module** (`.github/CODEOWNERS`): phần DA (`ingestion/`, `hygiene/`, `analytics/`, `app/`, `notebooks/`, `configs/{sources,scraping_rate_limits,taxonomy}.yaml`) do ML+QA review; phần ML+QA (`nlp/`, `clustering/`, `api/`, `configs/{train_ner,clustering}.yaml`) do DA review; phần còn lại (`.github/`, `ports/`, `tests/`, `docs/`, `specs/`, `pyproject.toml`, `Makefile`) cả hai cùng review. Nếu tác giả chính là owner của đường dẫn đó, GitHub không tự gọi ai: nhờ người kia review thủ công.
+- Ruleset không bật `require_code_owner_review`: CODEOWNERS chỉ tự yêu cầu đúng người, điều kiện merge vẫn là 1 approval từ người khác + `ci-ok`. Bật tham số này chỉ khi cả hai đã có quyền Write và danh sách owner mỗi module có từ hai người trở lên, nếu không PR của chính owner sẽ không tự qua được.
 - Đổi cấu hình Ruleset: sửa `.github/rulesets/main.json` trong một PR, rồi áp bằng `gh api -X PUT repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets/<ID> --input .github/rulesets/main.json` (lấy `<ID>` bằng `gh api repos/AIVIETNAM-AIO-luciusHo/skill-radar-ai/rulesets --jq '.[].id'`) và ghi quyết định vào `docs/decisions.md`.
 - Review nhắm vào: đáp ứng Acceptance Criteria, đúng data contract, test có ý nghĩa (không chỉ phủ dòng), dữ liệu biên, và các nguyên tắc trong `.specify/memory/constitution.md`.
 

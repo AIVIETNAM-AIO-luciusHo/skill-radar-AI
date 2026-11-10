@@ -12,3 +12,4 @@ Trạng thái: `proposed` → `approved` → `superseded`. Mỗi cổng G0–G4 
 | D-06 | Trục thời gian cuối cùng (2017–2024 hay 2023–2026) | Chờ kết quả kiểm kê dữ liệu | proposed (G0) | — |
 | D-07 | Quy trình chuẩn Issue → nhánh+code → PR → `ci-ok` → review & approve → merge; mẫu PR 6 mục; Definition of Done trong mẫu Issue và `CONTRIBUTING.md`. Ruleset giữ 0 approval, nâng lên 1 khi Hogiaan có quyền Write; CODEOWNERS giữ chỉ chủ repo | Chủ repo chọn giữ nguyên tới khi có người thứ hai | approved | 2026-11-08 |
 | D-08 | Ruleset `main` đòi 1 approval từ người khác; `CODEOWNERS` vẫn chỉ chủ repo, không bật review Code Owner | Hogiaan đã chấp nhận lời mời và có quyền Write (2026-11-08) | approved | 2026-11-08 |
+| D-09 | Thành viên DA đổi từ Hogiaan sang Phạm Nguyễn Thanh Sơn (`ThSonDev`, Data Engineer); nhãn vai trò giữ `DA`; D-07/D-08 giữ nguyên làm lịch sử | Đổi nhân sự (2026-11-10) | approved | 2026-11-10 |
